@@ -4,7 +4,7 @@ import axios  from 'axios';
 
 export const fetchRecipes = createAsyncThunk('recipes/fetchRecipes', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('http://localhost:3000/api/recipeGet');
+    const response = await axios.get('https://fullsack-project.onrender.com/api/recipeGet');
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

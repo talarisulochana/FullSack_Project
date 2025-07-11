@@ -18,7 +18,7 @@ export const updateRecipe = createAsyncThunk(
 
       console.log(updated)
       const res = await axios.put(
-        `http://localhost:3000/api/recipePut/${id}`,
+        `https://fullsack-project.onrender.com/api/recipePut/${id}`,
         updated,
         {
           headers: {

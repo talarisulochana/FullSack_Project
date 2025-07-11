@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const signupUser = createAsyncThunk('auth/signupUser', async (userData, rejectWithValue) => {
   try {
-    const res = await axios.post('http://localhost:3000/api/userPost', userData);
+    const res = await axios.post('https://fullsack-project.onrender.com/api/userPost', userData);
     return res.data;
   } catch (err) {
   return rejectWithValue(

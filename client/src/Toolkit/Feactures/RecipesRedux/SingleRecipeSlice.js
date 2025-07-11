@@ -6,7 +6,7 @@ export const fetchSingleRecipe = createAsyncThunk(
   'recipes/fetchSingleRecipe',
   async (id, { rejectWithValue }) => {
     try {
-      const res = await axios.get(`http://localhost:3000/api/recipeGet/${id}`);
+      const res = await axios.get(`https://fullsack-project.onrender.com/api/recipeGet/${id}`);
       return res.data;
     } catch (err) {
       return rejectWithValue(err.response?.data || "Failed to fetch recipe");

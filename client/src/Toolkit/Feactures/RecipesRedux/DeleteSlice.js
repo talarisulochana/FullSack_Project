@@ -6,7 +6,7 @@ export const deleteRecipe = createAsyncThunk(
   'recipes/deleteRecipe',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/api/recipeDelete/${id}`);
+      const response = await axios.delete(`https://fullsack-project.onrender.com/api/recipeDelete/${id}`);
       return response.data; 
     } catch (error) {
       return rejectWithValue(error.response.data.message || 'Failed to delete recipe');

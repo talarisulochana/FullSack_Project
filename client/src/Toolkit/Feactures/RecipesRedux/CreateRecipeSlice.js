@@ -15,7 +15,7 @@ export const createRecipe = createAsyncThunk(
       pd.append("steps", payload.steps);
       pd.append("image", payload.image);
 
-      const response = await axios.post("http://localhost:3000/api/recipePost", pd, {
+      const response = await axios.post("https://fullsack-project.onrender.com/api/recipePost", pd, {
         headers: {
           "Content-Type": "multipart/form-data"
         },
