@@ -1,0 +1,82 @@
+# # Node modules
+# node_modules/
+
+# # Logs
+# logs/
+# *.log
+# npm-debug.log*
+# yarn-debug.log*
+# yarn-error.log*
+
+# # Runtime data
+# pids/
+# *.pid
+# *.seed
+# *.pid.lock
+
+# # Environment variables
+# .env
+# .env.*.local
+
+# # Build outputs
+# dist/
+# build/
+
+# # IDE files
+# .vscode/
+# .idea/
+# *.sublime-workspace
+# *.sublime-project
+
+# # OS files
+# .DS_Store
+# Thumbs.db
+
+# # Optional npm cache directory
+# .npm/
+
+# # Coverage directory used by testing tools
+# coverage/
+
+# # Debug files
+# *.tgz
+# *.bak
+# *.orig
+
+# # Local MongoDB database
+# dump/
+
+# credentials.json
+
+
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploaded files (temporary)
+temp/
+
+# Local credentials (Google service account key)
+credentials.json
+
+# IDEs/editors
+.vscode/
+.idea/
+*.swp
+
+# Optional: build/output folders
+dist/
+build/
