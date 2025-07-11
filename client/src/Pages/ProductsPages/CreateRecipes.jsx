@@ -1,15 +1,15 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createRecipe } from '../../Toolkit/Feactures/RecipesRedux/CreateRecipeSlice';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function CreateRecipes() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
+
 
   const [formData, setFormData] = useState({
     title: '',
@@ -24,11 +24,7 @@ function CreateRecipes() {
 
   const [imageFile, setImageFile] = useState(null);
 
-  useEffect(() => {
-    if (user && user.name) {
-      setFormData(prev => ({ ...prev, editorName: user.name }));
-    }
-  }, [user]);
+
 
   const imageHandler = (e) => {
     const file = e.target.files[0];
@@ -47,7 +43,7 @@ function CreateRecipes() {
       const payload = {
         title: formData.title,
         category: formData.category,
-        ingredients: formData.ingredients.split(',').map(item => item.trim()),
+        ingredients: formData.ingredients,
         cost: formData.cost,
         editorName: formData.editorName,
         image: imageFile,
@@ -149,8 +145,9 @@ function CreateRecipes() {
       type="text"
       name="editorName"
       placeholder="Editor Name"
-      className="w-full border border-gray-300 px-4 py-2 rounded bg-gray-100 cursor-not-allowed"
+      className="w-full border border-gray-300 px-4 py-2 rounded bg-gray-100 "
       value={formData.editorName}
+      onChange={handleChange}
     required
     />
 

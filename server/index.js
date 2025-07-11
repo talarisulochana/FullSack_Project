@@ -31,7 +31,8 @@ app.use(express.urlencoded({ extended: true }));
 connectMongo();
 
 app.use(cors({
-  origin: '*',
+  origin:[ 'https://fullsack-project.onrender.com',"http://localhost:5173/"],
+  origin:"*",
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));

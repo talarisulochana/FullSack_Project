@@ -146,8 +146,10 @@ const handleDelete = (id) => {
                       </div>
                     )}
                   </div>
+ 
+           
+                  <Image path={recipe.image} alt={recipe.title} styling="w-full h-64 object-cover rounded mb-2 border border-gray-300" />
 
-                  <Image path={recipe.image} alt={recipe.title} styling="w-full h-64 object-cover rounded mb-2" />
                   <h2 className="text-xl font-semibold text-center">{recipe.title}</h2>
                   <p className="text-sm text-gray-600 text-center">{recipe.category}</p>
                   <p className="mt-2 text-gray-800 text-center">Cost: ₹{recipe.cost}</p>

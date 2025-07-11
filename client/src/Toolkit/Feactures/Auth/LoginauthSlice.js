@@ -3,6 +3,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+
+const storedUser = JSON.parse(localStorage.getItem('user'));
+
 export const loginUser = createAsyncThunk('auth/loginUser', async ({ email, password }, rejectWithValue) => {
   try {
     const res = await axios.get(`https://fullsack-project.onrender.com/api/userGet`);
@@ -25,7 +28,7 @@ export const loginUser = createAsyncThunk('auth/loginUser', async ({ email, pass
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: null,
+    user:storedUser || null, 
     error: null,
     status: 'idle',
   },
@@ -45,6 +48,9 @@ const authSlice = createSlice({
         state.status = 'succeeded';
         state.user = action.payload;
         state.error = null;
+   localStorage.setItem('user', JSON.stringify(action.payload));
+        Cookies.set('user', JSON.stringify(action.payload));
+
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.status = 'failed';

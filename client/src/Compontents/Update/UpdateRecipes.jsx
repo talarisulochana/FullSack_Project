@@ -6,11 +6,15 @@ import { updateRecipe } from '../../Toolkit/Feactures/RecipesRedux/UpdateSlice';
 import { toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 function UpdateRecipes() {
   const { id } = useParams();
   const { state } = useLocation(); 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+
+
 
   const [formData, setFormData] = useState({
     title: '',
@@ -25,13 +29,15 @@ function UpdateRecipes() {
   const [previewImage, setPreviewImage] = useState(null);
 
   useEffect(() => {
+     const storedUser = JSON.parse(localStorage.getItem("user"));
+  const editor = storedUser?.name;
     if (state) {
       setFormData({
         title: state.title,
         category: state.category,
         ingredients: state.ingredients,
         cost: state.cost,
-        editorName: state.editorName,
+        editorName: state.editorName||editor,
         steps: state.steps,
         image: null,
       });
@@ -140,13 +146,14 @@ function UpdateRecipes() {
   />
 
 
-  <input
-    type="text"
-    name="editorName"
-    value={formData.editorName}
-    readOnly
-    className="border border-gray-300 p-2 w-full rounded bg-gray-100 cursor-not-allowed"
-  />
+
+<input
+  type="text"
+  name="editorName"
+  value={formData.editorName}
+  readOnly
+  className="border border-gray-300 p-2 w-full rounded bg-gray-100 cursor-not-allowed"
+/>
 
 
   <textarea
